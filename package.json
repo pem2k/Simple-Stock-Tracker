@@ -1,0 +1,30 @@
+{
+  "name": "simple-stock-tracker",
+  "version": "1.0.0",
+  "description": "The Simple Stock Tracker is an application that allows users to create an account, sign in, add stock tickers and purchase dates/times. From there, users can review the price change in either a specific stock, or the entire value of their tracked portfolio.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pem2k/Simple-Stock-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pem2k/Simple-Stock-Tracker/issues"
+  },
+  "homepage": "https://github.com/pem2k/Simple-Stock-Tracker#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.4.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.6"
+  }
+}
