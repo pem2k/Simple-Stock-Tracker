@@ -4,6 +4,7 @@ import { connectDB } from "./src/db/connection.js";
 const app = express();
 
 async function main() {
+  // Database connection
   try {
     await connectDB();
     app.listen(3000, () => console.log("Server running on port 3000"));
