@@ -12,6 +12,22 @@ export async function findUserByUsername(username) {
   return getDB().collection(USERS_COLLECTION).findOne({ username });
 }
 
+//make sure to call this one, nice and easy on user response
+// can just return res.json(findSafeUserByUsername) so hash doesnt get exposed
+// to browser
+export async function findSafeUserByUsername(username) {
+  const user = await findUserByUsername(username);
+
+  if (!user) {
+    return null;
+  }
+
+  return {
+    id: user._id,
+    username: user.userName,
+  };
+}
+
 //TODO: Check if I actually need this function, createuser will obv use
 //username because it's provided by user, holding onto it for now but may
 // delete
