@@ -76,3 +76,18 @@ export async function createUser(username, password) {
 //we can avoid a ton of alpaca calls, though we should be fine at a 60/call
 // a second limit.
 // login verification - will be called by a post
+export async function verifyLogin(username, password) {
+  const user = await findSafeUserByUsername(username);
+
+  if (user === null) {
+    throw new Error("Error, user does not exist");
+  }
+
+  const passwordCheck = await bcrypt.compare(password, user.hashedPassword);
+
+  if (!passwordCheck) {
+    return null;
+  }
+
+  return user;
+}
