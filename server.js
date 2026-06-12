@@ -1,12 +1,15 @@
 import express from "express";
 import session from "express-session";
+// db
 import { connectDB } from "./src/db/connection.js";
+// routes import
+import authRoutes from "./src/routes/authRoutes.js";
 
+// middleware
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
-
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -16,6 +19,8 @@ app.use(
     saveUninitialized: false,
   }),
 );
+
+app.use("/api/auth", authRoutes);
 
 async function main() {
   // Database connection
