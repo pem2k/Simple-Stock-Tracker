@@ -6,10 +6,12 @@ const SALT_ROUNDS = 20;
 
 //find user - mongo id or username, use this to
 // check if user exists on login, pull stock data from acc, etc.
+// read operation - get
 
 //create user - this is going to be used on the signup route,
 //should contain logic that the username provided isn't taken
 //writes to mongo db, creating a new user, password hashing also happens here.
+// add operation - post
 
 //login verification - checks pw hash and username match,
 // only returns user id and username.
@@ -20,3 +22,12 @@ const SALT_ROUNDS = 20;
 // maybe the pull happens on graph generation and it's written to cache, if cache is checked first
 //we can avoid a ton of alpaca calls, though we should be fine at a 60/call
 // a second limit.
+// login verification - will be called by a post
+
+export async function findUserByUsername(username) {
+  return getDB().collection(USERS_COLLECTION).findOne({ username });
+}
+
+export async function findUserByID(_id) {
+  return getDB().collection(USERS_COLLECTION).findOne({ _id });
+}
