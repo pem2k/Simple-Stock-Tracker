@@ -1,6 +1,7 @@
 import express from "express";
 import { createUser, findUserByUsername } from "../modules/users.js";
 import bcrypt from "bcrypt";
+import { requireAuth } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
@@ -68,10 +69,7 @@ router.post("/login", async (req, res) => {
 });
 
 //logout
-router.post("/logout", (req, res) => {
-  if (!req.session.user) {
-    return res.json({ message: "Error, account not logged in" });
-  }
+router.post("/logout", requireAuth, (req, res) => {
   req.session.destroy((err) => {
     if (err) return res.status(500).json({ error: "unable to log out" });
     res.clearCookie("connect.sid");
