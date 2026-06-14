@@ -4,6 +4,7 @@ import session from "express-session";
 import { connectDB } from "./src/db/connection.js";
 // routes import
 import authRoutes from "./src/routes/authRoutes.js";
+import stockRoutes from "./src/routes/stockRoutes.js";
 
 // middleware
 const app = express();
@@ -21,6 +22,7 @@ app.use(
 );
 
 app.use("/api/auth", authRoutes);
+app.use("/api/stocks", stockRoutes);
 
 async function main() {
   // Database connection
