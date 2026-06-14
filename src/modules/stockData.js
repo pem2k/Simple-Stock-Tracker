@@ -11,7 +11,12 @@ export async function getHistoricalPrices(ticker, startDate, endDate) {
   const cached = await getByTickerAndDateRange(ticker, startDate, endDate);
 
   if (cached.length > 0) {
-    return cached;
+    const firstDate = cached[0].date;
+    const lastDate = cached[cached.length - 1].date;
+
+    if (firstDate <= startDate && lastDate >= endDate) {
+      return cached;
+    }
   }
 
   const result = await yahooFinance.chart(ticker, {
