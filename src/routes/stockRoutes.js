@@ -8,15 +8,15 @@ const router = express.Router();
 router.post("/ticker", requireAuth, async (req, res) => {
   const { ticker, startDate } = req.body;
 
-  const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
-  yesterday.setHours(0, 0, 0, 0);
-
+  //changed this out from yesterday to today, there was a gap, if closing cut yesterday,
+  // but markets were closed, data would be one day stale.
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
   try {
     const prices = await getHistoricalPrices(
       ticker,
       new Date(startDate),
-      yesterday,
+      today,
     );
     res.json(prices);
   } catch (err) {
