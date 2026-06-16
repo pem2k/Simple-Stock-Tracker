@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import { getDB } from "../db/connection.js";
+import { ObjectId } from "mongodb";
 
 const USERS_COLLECTION = "users";
 const SALT_ROUNDS = 12;
@@ -38,4 +39,25 @@ export async function createUser(username, password) {
     _id: newUser.insertedId,
     username: username,
   };
+}
+
+// adding in a few new functions for this module:
+// add holdings, remove holdings, and get holdings.
+// these should all be pretty simple, just needs the id to target
+// the user for the write, and the ticker and date of purchase. Price at purchase date close
+// is pulled from npm finance to populate the starting price on the user holdings.
+// slightly inaccurate as Im not asking for purchase time, but I think it's fine
+// to use closing for this project's mvp.
+
+export async function addHolding(userId, ticker, purchaseDate, purchasePrice) {
+  return getDB()
+    .collection(USERS_COLLECTION)
+    .updateOne(
+      {
+        _id: new ObjectId(userId),
+      },
+      {
+        $push: { holdings: { ticker, purchaseDate, purchasePrice } },
+      },
+    );
 }
