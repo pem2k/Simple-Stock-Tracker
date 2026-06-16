@@ -1,9 +1,10 @@
 import YahooFinance from "yahoo-finance2";
-const yahooFinance = new YahooFinance();
+import { getLatestPrice } from "./alpacaClient.js";
 import {
   getByTickerAndDateRange,
   upsertDailyRecords,
 } from "../db/stockHistory.js";
+const yahooFinance = new YahooFinance();
 
 // returns daily prices for a ticker between two dates
 // checks DB cache first, fetches from yahoo finance on miss
@@ -32,6 +33,18 @@ export async function getHistoricalPrices(ticker, startDate, endDate) {
   }));
 
   await upsertDailyRecords(records);
+  // this gets null if it's outside of the trading day, that way we know it's safe to
+  // rely on the yahoo finance close, but if it's checked in the middle of the day, it gets
+  // the current price which is injected as a record in the response.
+  const latest = await getLatestPrice(ticker);
+  if (latest) {
+    const latest = await getLatestPrice(ticker);
+    records.push({
+      ticker,
+      date: latest.date,
+      close: latest.price,
+    });
+  }
 
   return records;
 }
