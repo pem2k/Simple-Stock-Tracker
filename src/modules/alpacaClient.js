@@ -7,17 +7,19 @@ const alpaca = new Alpaca({
   paper: true,
 });
 
-// Alpaca API call, this return will be appened to the list of data retrieved from
-// yahoo finance, this allows intraday value checks. Need to be careful here with timing though
-// should probably include an edgecase for if this is checked outside of
-// trading hours so I dont get duplicate points on the graph,
-// e.g. yahoo finance close and alpaca close both being reported.
-// That being said, that error handling can probably go before this is called in stockdata.js
+// changed my thoughts on this a bit, self containing the trading hours check
+// this also doesn't rely on client time, only on if the market is open or not,
+// I think it's better. All I have to do is null check in stockdata.js
 export async function getLatestPrice(ticker) {
-  const snapshot = await alpaca.getSnapshot(ticker);
-  return {
-    ticker,
-    date: new Date(snapshot.LatestTrade.Timestamp),
-    price: snapshot.LatestTrade.Price,
-  };
+  const clock = await alpaca.getClock();
+  if (clock.is_open) {
+    const snapshot = await alpaca.getSnapshot(ticker);
+    return {
+      ticker,
+      date: new Date(snapshot.LatestTrade.Timestamp),
+      price: snapshot.LatestTrade.Price,
+    };
+  } else {
+    return null;
+  }
 }
