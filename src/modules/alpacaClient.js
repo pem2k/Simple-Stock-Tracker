@@ -12,11 +12,12 @@ const alpaca = new Alpaca({
 // should probably include an edgecase for if this is checked outside of
 // trading hours so I dont get duplicate points on the graph,
 // e.g. yahoo finance close and alpaca close both being reported.
+// That being said, that error handling can probably go before this is called in stockdata.js
 export async function getLatestPrice(ticker) {
   const snapshot = await alpaca.getSnapshot(ticker);
   return {
     ticker,
-    date: new Date(snapshot.latestTrade.Timestamp),
+    date: new Date(snapshot.LatestTrade.Timestamp),
     price: snapshot.LatestTrade.Price,
   };
 }
