@@ -37,7 +37,6 @@ router.delete("/remove", requireAuth, async (req, res) => {
 
 router.get("/all", requireAuth, async (req, res) => {
   const userId = req.session.user.id;
-
   try {
     const user = await getAllHoldings(userId);
     res.status(200).json(user.holdings);
