@@ -21,4 +21,9 @@ router.post("/add", requireAuth, async (req, res) => {
   }
 });
 
+router.post("/remove", requireAuth, async (req, res) => {
+  // this is going to be a little more work, I need to pull the user,
+  // find the holding, and then remove it from the array.
+});
+
 export default router;

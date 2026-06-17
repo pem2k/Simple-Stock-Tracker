@@ -61,3 +61,16 @@ export async function addHolding(userId, ticker, purchaseDate, purchasePrice) {
       },
     );
 }
+
+export async function removeHolding(userId, ticker, purchaseDate) {
+  return getDB()
+    .collection(USERS_COLLECTION)
+    .updateOne(
+      {
+        _id: new ObjectId(userId),
+      },
+      {
+        $pull: { holdings: { ticker, purchaseDate: new Date(purchaseDate) } },
+      },
+    );
+}
