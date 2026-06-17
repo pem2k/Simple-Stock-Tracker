@@ -1,6 +1,6 @@
 import express from "express";
 import { requireAuth } from "../middleware/authMiddleware.js";
-import { addHolding } from "../modules/users.js";
+import { addHolding, removeHolding } from "../modules/users.js";
 import { getHistoricalPrices } from "../modules/stockData.js";
 
 const router = express.Router();
@@ -21,9 +21,18 @@ router.post("/add", requireAuth, async (req, res) => {
   }
 });
 
-router.post("/remove", requireAuth, async (req, res) => {
-  // this is going to be a little more work, I need to pull the user,
-  // find the holding, and then remove it from the array.
+router.delete("/remove", requireAuth, async (req, res) => {
+  const { ticker, purchaseDate } = req.body;
+  const userId = req.session.user.id;
+  try {
+    const removedHolding = await removeHolding(userId, ticker, purchaseDate);
+    if (removedHolding.modifiedCount === 0) {
+      return res.status(404).json({ error: "holding not found" });
+    }
+    res.status(200).json({ removed: { ticker, purchaseDate } });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 export default router;
