@@ -38,7 +38,6 @@ export async function getHistoricalPrices(ticker, startDate, endDate) {
   // the current price which is injected as a record in the response.
   const latest = await getLatestPrice(ticker);
   if (latest) {
-    const latest = await getLatestPrice(ticker);
     records.push({
       ticker,
       date: latest.date,
