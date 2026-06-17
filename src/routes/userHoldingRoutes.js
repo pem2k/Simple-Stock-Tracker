@@ -40,7 +40,7 @@ router.get("/all", requireAuth, async (req, res) => {
 
   try {
     const user = await getAllHoldings(userId);
-    res.json(user.holdings);
+    res.status(200).json(user.holdings);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
