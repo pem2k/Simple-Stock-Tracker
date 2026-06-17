@@ -74,3 +74,14 @@ export async function removeHolding(userId, ticker, purchaseDate) {
       },
     );
 }
+
+export async function getAllHoldings(userId) {
+  // Had to add the projection key so I wouldn't get back the full user doc,
+  // initial attempt resulted in a return with the pw hash. For future reference, storing this
+  // on the user might be a bad pattern, maybe instead store a link to their holdings?
+  // not sure if it's worth just so I can return a whole document bc this fix was pretty
+  // easy
+  return getDB()
+    .collection(USERS_COLLECTION)
+    .findOne({ _id: new ObjectId(userId) }, { projection: { holdings: 1 } });
+}

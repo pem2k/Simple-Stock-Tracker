@@ -1,6 +1,6 @@
 import express from "express";
 import { requireAuth } from "../middleware/authMiddleware.js";
-import { addHolding, removeHolding } from "../modules/users.js";
+import { addHolding, removeHolding, getAllHoldings } from "../modules/users.js";
 import { getHistoricalPrices } from "../modules/stockData.js";
 
 const router = express.Router();
@@ -30,6 +30,17 @@ router.delete("/remove", requireAuth, async (req, res) => {
       return res.status(404).json({ error: "holding not found" });
     }
     res.status(200).json({ removed: { ticker, purchaseDate } });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+router.get("/all", requireAuth, async (req, res) => {
+  const userId = req.session.user.id;
+
+  try {
+    const user = await getAllHoldings(userId);
+    res.json(user.holdings);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
