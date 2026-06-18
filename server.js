@@ -22,6 +22,8 @@ app.use(
   }),
 );
 
+app.use(express.static("public"));
+
 app.use("/api/auth", authRoutes);
 app.use("/api/stocks", stockRoutes);
 app.use("/api/userHoldings", userHoldingRoutes);
