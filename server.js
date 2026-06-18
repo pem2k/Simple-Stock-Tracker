@@ -28,6 +28,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/stocks", stockRoutes);
 app.use("/api/userHoldings", userHoldingRoutes);
 
+app.get("/dashboard", (req, res) => {
+  res.sendFile("public/pages/portfolioDashboard.html", { root: "." });
+});
+
 async function main() {
   // Database connection
   try {
