@@ -5,12 +5,6 @@ import { requireAuth } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-// need to write a middleware for route protection
-
-// routes to write, these are all posts
-
-// sign up
-
 router.post("/signup", async (req, res) => {
   const { username, password } = req.body;
 
