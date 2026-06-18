@@ -1,0 +1,96 @@
+/* Basic page layout. This centers the login card on the page. */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f8;
+  color: #1f2937;
+}
+
+/* Main container for the auth page */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* White card that holds the form */
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+}
+
+/* Main title */
+.auth-card h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* Small text under the title */
+.auth-description {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+/* Each label/input pair */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* Labels above inputs */
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: bold;
+}
+
+/* Text/password inputs */
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Submit button */
+button {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Small hover effect */
+button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Message area for errors or success */
+.auth-message {
+  min-height: 1.5rem;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Link under the form */
+.auth-link {
+  text-align: center;
+}
+
+/* Make links blue */
+.auth-link a {
+  color: #2563eb;
+}
