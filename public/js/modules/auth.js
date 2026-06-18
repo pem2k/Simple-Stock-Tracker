@@ -1,3 +1,5 @@
+import { loginUser, signupUser } from "./api.js";
+
 /*
   auth.js
 
@@ -10,11 +12,6 @@
 
   This keeps the frontend JavaScript organized
 */
-
-// This is the base URL for the backend authentication routes.
-// Your backend route folder is called authRoutes.js,
-// so your backend probably uses something like /api/auth.
-const AUTH_API_URL = "/api/auth";
 
 /*
   This helper function shows a message on the page
@@ -39,45 +36,6 @@ function showMessage(message, type = "error") {
   } else {
     messageElement.style.color = "red";
   }
-}
-
-/*
-  This helper function sends data to the backend
-
-  endpoint example:
-  "/login" or "/signup"
-
-  data example:
-  {
-    username: "najib",
-    password: "testing123"
-  }
-*/
-async function sendAuthRequest(endpoint, data) {
-  const response = await fetch(`${AUTH_API_URL}${endpoint}`, {
-    method: "POST",
-
-    // we are sending JSON to Express.
-    headers: {
-      "Content-Type": "application/json",
-    },
-
-    // convert the JS object into JSON text.
-    body: JSON.stringify(data),
-  });
-
-  // Try to read the JSON response from the backend
-  const result = await response.json();
-
-  /*
-    If the backend sends a bad status code,
-    we throw an error so the catch block can show it.
-  */
-  if (!response.ok) {
-    throw new Error(result.message || "Something went wrong.");
-  }
-
-  return result;
 }
 
 /*
@@ -109,16 +67,13 @@ function setupLoginForm() {
     try {
       showMessage("Logging in...", "success");
 
-      const result = await sendAuthRequest("/login", {
-        username,
-        password,
-      });
+      const result = await loginUser(username, password);
 
       showMessage(result.message || "Login successful!", "success");
 
       /*
         Later, when the dashboard page is ready,
-        you can redirect there.
+        we can redirect there.
 
         Example:
         window.location.href = "../index.html";
@@ -165,15 +120,12 @@ function setupSignupForm() {
     try {
       showMessage("Creating account...", "success");
 
-      const result = await sendAuthRequest("/signup", {
-        username,
-        password,
-      });
+      const result = await signupUser(username, password);
 
       showMessage(result.message || "Account created successfully!", "success");
 
       /*
-        After signup works, you can send the user to login.
+        After signup works, we can send the user to login.
 
         Small delay so the user can see the success message.
       */
