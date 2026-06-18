@@ -28,6 +28,14 @@ app.use("/api/auth", authRoutes);
 app.use("/api/stocks", stockRoutes);
 app.use("/api/userHoldings", userHoldingRoutes);
 
+app.get("/login", (req, res) => {
+  res.sendFile("public/pages/login.html", { root: "." });
+});
+
+app.get("/signup", (req, res) => {
+  res.sendFile("public/pages/signup.html", { root: "." });
+});
+
 app.get("/dashboard", (req, res) => {
   res.sendFile("public/pages/portfolioDashboard.html", { root: "." });
 });

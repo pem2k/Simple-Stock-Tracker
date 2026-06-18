@@ -115,14 +115,7 @@ function setupLoginForm() {
       });
 
       showMessage(result.message || "Login successful!", "success");
-
-      /*
-        Later, when the dashboard page is ready,
-        you can redirect there.
-
-        Example:
-        window.location.href = "../index.html";
-      */
+      window.location.href = "/dashboard";
     } catch (error) {
       showMessage(error.message);
     }
@@ -178,7 +171,7 @@ function setupSignupForm() {
         Small delay so the user can see the success message.
       */
       setTimeout(() => {
-        window.location.href = "./login.html";
+        window.location.href = "/login";
       }, 1000);
     } catch (error) {
       showMessage(error.message);
