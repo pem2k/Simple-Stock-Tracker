@@ -30,11 +30,13 @@ if (form) {
     const ticker = document.getElementById("ticker").value.trim().toUpperCase();
 
     // Get the purchase date from the date input.
+    const units = parseFloat(document.getElementById("units").value);
+
     const purchaseDate = document.getElementById("purchase-date").value;
 
     // Basic validation.
-    if (!ticker || !purchaseDate) {
-      console.error("Ticker and purchase date are required.");
+    if (!ticker || !purchaseDate || !units) {
+      console.error("Ticker, units, and purchase date are required.");
       return;
     }
 
@@ -51,7 +53,7 @@ if (form) {
           purchaseDate
         }
       */
-      const data = await addHolding(ticker, purchaseDate);
+      const data = await addHolding(ticker, purchaseDate, units);
 
       // Later, show this on the page instead of only console.log.
       console.log("Added holding:", data);

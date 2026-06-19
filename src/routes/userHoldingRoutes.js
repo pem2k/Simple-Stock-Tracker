@@ -6,7 +6,7 @@ import { getHistoricalPrices } from "../modules/stockData.js";
 const router = express.Router();
 
 router.post("/add", requireAuth, async (req, res) => {
-  const { ticker, purchaseDate } = req.body;
+  const { ticker, purchaseDate, units } = req.body;
   const userId = req.session.user.id;
   try {
     const date = new Date(purchaseDate);
@@ -14,8 +14,8 @@ router.post("/add", requireAuth, async (req, res) => {
     nextDay.setDate(nextDay.getDate() + 1);
     const prices = await getHistoricalPrices(ticker, date, nextDay);
     const purchasePrice = prices[0].close;
-    await addHolding(userId, ticker, date, purchasePrice);
-    res.status(201).json({ ticker, purchaseDate: date, purchasePrice });
+    await addHolding(userId, ticker, date, purchasePrice, units);
+    res.status(201).json({ ticker, purchaseDate: date, purchasePrice, units });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

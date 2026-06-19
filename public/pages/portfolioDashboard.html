@@ -34,24 +34,28 @@
         </ul>
       </div>
     </header>
-    <form id="add-holding-form">
-      <label for="ticker"></label>
-      <input
-        type="text"
-        id="ticker"
-        name="ticker"
-        placeholder="AAPL"
-        required
-      />
-      <label for="purchase-date">Purchase Date</label>
-      <input type="date" id="purchase-date" name="purchaseDate" required />
+    <main>
+      <canvas id="holdings-chart"></canvas>
 
-      <button type="submit">Add Holding</button>
-    </form>
+      <form id="add-holding-form">
+        <label for="ticker">Ticker:</label>
+        <input type="text" id="ticker" placeholder="AAPL" required />
+        <label for="units">Units Purchased:</label>
+        <input
+          type="number"
+          id="units"
+          min="0"
+          step="any"
+          placeholder="10"
+          required
+        />
+        <label for="purchase-date">Purchase Date:</label>
+        <input type="date" id="purchase-date" name="purchaseDate" required />
 
-    <canvas id="holdings-chart"></canvas>
+        <button type="submit">Add Holding</button>
+      </form>
+    </main>
     <script type="module" src="../js/modules/logout.js"></script>
-    <script type="module" src="../js/modules/chartBuilder.js"></script>
     <script type="module" src="../js/modules/addHolding.js"></script>
     <script type="module" src="../js/modules/chartBuilder.js"></script>
     <script
