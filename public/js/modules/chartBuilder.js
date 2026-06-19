@@ -24,7 +24,7 @@ Chart.register(...registerables);
   ];
 
   new Chart(document.getElementById("holdings-chart"), {
-    type: "bar",
+    type: "line",
     data: {
       labels: data.map((row) => row.year),
       datasets: [
