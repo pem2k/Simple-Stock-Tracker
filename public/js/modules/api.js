@@ -87,10 +87,10 @@ export function logoutUser() {
   These connect to src/routes/userHoldingRoutes.js.
 */
 
-export function addHolding(ticker, purchaseDate) {
+export function addHolding(ticker, purchaseDate, units) {
   return apiRequest("/api/userHoldings/add", {
     method: "POST",
-    body: JSON.stringify({ ticker, purchaseDate }),
+    body: JSON.stringify({ ticker, purchaseDate, units }),
   });
 }
 
