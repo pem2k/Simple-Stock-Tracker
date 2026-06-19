@@ -4,7 +4,6 @@ import session from "express-session";
 import { connectDB } from "./src/db/connection.js";
 // routes import
 import authRoutes from "./src/routes/authRoutes.js";
-import stockRoutes from "./src/routes/stockRoutes.js";
 import userHoldingRoutes from "./src/routes/userHoldingRoutes.js";
 
 // middleware
@@ -25,7 +24,6 @@ app.use(
 app.use(express.static("public"));
 
 app.use("/api/auth", authRoutes);
-app.use("/api/stocks", stockRoutes);
 app.use("/api/userHoldings", userHoldingRoutes);
 
 app.get("/", (req, res) => {
