@@ -12,22 +12,52 @@
     />
     <link rel="stylesheet" href="" />
   </head>
-  <body>
-    <form id="add-holding-form">
-      <label for="ticker"></label>
-      <input
-        type="text"
-        id="ticker"
-        name="ticker"
-        placeholder="AAPL"
-        required
-      />
-      <label for="purchase-date">Purchase Date</label>
-      <input type="date" id="purchase-date" name="purchaseDate" required />
+  <body class="container">
+    <header class="navbar navbar-expand-lg sticky-top">
+      <a class="nav-link" href="#top">The Simple Stock Tracker</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#main-nav"
+        aria-controls="main-nav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="main-nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" role="button" id="logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <canvas id="holdings-chart"></canvas>
 
-      <button type="submit">Add Holding</button>
-    </form>
+      <form id="add-holding-form">
+        <label for="ticker">Ticker:</label>
+        <input type="text" id="ticker" placeholder="AAPL" required />
+        <label for="units">Units Purchased:</label>
+        <input
+          type="number"
+          id="units"
+          min="0"
+          step="any"
+          placeholder="10"
+          required
+        />
+        <label for="purchase-date">Purchase Date:</label>
+        <input type="date" id="purchase-date" name="purchaseDate" required />
+
+        <button type="submit">Add Holding</button>
+      </form>
+    </main>
+    <script type="module" src="../js/modules/logout.js"></script>
     <script type="module" src="../js/modules/addHolding.js"></script>
+    <script type="module" src="../js/modules/chartBuilder.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

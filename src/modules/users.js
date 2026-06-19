@@ -49,7 +49,7 @@ export async function createUser(username, password) {
 // slightly inaccurate as Im not asking for purchase time, but I think it's fine
 // to use closing for this project's mvp.
 
-export async function addHolding(userId, ticker, purchaseDate, purchasePrice) {
+export async function addHolding(userId, ticker, purchaseDate, purchasePrice, units) {
   return getDB()
     .collection(USERS_COLLECTION)
     .updateOne(
@@ -57,7 +57,7 @@ export async function addHolding(userId, ticker, purchaseDate, purchasePrice) {
         _id: new ObjectId(userId),
       },
       {
-        $push: { holdings: { ticker, purchaseDate, purchasePrice } },
+        $push: { holdings: { ticker, purchaseDate, purchasePrice, units } },
       },
     );
 }
