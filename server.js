@@ -28,7 +28,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/stocks", stockRoutes);
 app.use("/api/userHoldings", userHoldingRoutes);
 
-app.get("/login", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile("public/pages/login.html", { root: "." });
 });
 

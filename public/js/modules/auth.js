@@ -171,7 +171,7 @@ function setupSignupForm() {
         Small delay so the user can see the success message.
       */
       setTimeout(() => {
-        window.location.href = "/login";
+        window.location.href = "/";
       }, 1000);
     } catch (error) {
       showMessage(error.message);
