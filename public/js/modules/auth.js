@@ -70,14 +70,7 @@ function setupLoginForm() {
       const result = await loginUser(username, password);
 
       showMessage(result.message || "Login successful!", "success");
-
-      /*
-        Later, when the dashboard page is ready,
-        we can redirect there.
-
-        Example:
-        window.location.href = "../index.html";
-      */
+      window.location.href = "/dashboard";
     } catch (error) {
       showMessage(error.message);
     }
@@ -130,7 +123,7 @@ function setupSignupForm() {
         Small delay so the user can see the success message.
       */
       setTimeout(() => {
-        window.location.href = "./login.html";
+        window.location.href = "/";
       }, 1000);
     } catch (error) {
       showMessage(error.message);
