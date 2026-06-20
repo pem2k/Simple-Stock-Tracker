@@ -31,6 +31,12 @@ Chart.register(...registerables);
         {
           label: "Portfolio Value",
           data: data.map((row) => row.count),
+          borderColor: getComputedStyle(document.documentElement)
+            .getPropertyValue("--bs-primary")
+            .trim(),
+          backgroundColor: getComputedStyle(document.documentElement)
+            .getPropertyValue("--bs-secondary")
+            .trim(),
         },
       ],
     },
