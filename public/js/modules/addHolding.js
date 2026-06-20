@@ -55,11 +55,14 @@ if (form) {
       */
       const data = await addHolding(ticker, purchaseDate, units);
 
-      // Later, show this on the page instead of only console.log.
       console.log("Added holding:", data);
 
-      // Clear the form after successful submit.
+      // Clear the form after successful submit
       form.reset();
+
+      // Refresh the dashboard so the new card and chart appear
+      window.location.reload();
+
     } catch (error) {
       // If the backend returns an error, show it in the console for now.
       console.error("Failed to add holding:", error.message);

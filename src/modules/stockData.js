@@ -36,7 +36,9 @@ export async function getHistoricalPrices(ticker, startDate, endDate) {
   // this gets null if it's outside of the trading day, that way we know it's safe to
   // rely on the yahoo finance close, but if it's checked in the middle of the day, it gets
   // the current price which is injected as a record in the response.
+  try {
   const latest = await getLatestPrice(ticker);
+
   if (latest) {
     records.push({
       ticker,
@@ -44,6 +46,9 @@ export async function getHistoricalPrices(ticker, startDate, endDate) {
       close: latest.price,
     });
   }
+} catch (err) {
+  console.warn("Could not fetch latest Alpaca price:", err.message);
+}
 
   return records;
 }

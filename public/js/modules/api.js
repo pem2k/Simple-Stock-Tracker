@@ -94,10 +94,10 @@ export function addHolding(ticker, purchaseDate, units) {
   });
 }
 
-export function removeHolding(ticker, purchaseDate) {
+export function removeHolding(holdingId) {
   return apiRequest("/api/userHoldings/remove", {
     method: "DELETE",
-    body: JSON.stringify({ ticker, purchaseDate }),
+    body: JSON.stringify({ holdingId }),
   });
 }
 
