@@ -10,7 +10,7 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
   </head>
   <body class="container">
     <header class="navbar navbar-expand-lg sticky-top">
@@ -34,26 +34,30 @@
         </ul>
       </div>
     </header>
-    <main>
-      <canvas id="holdings-chart"></canvas>
-
-      <form id="add-holding-form">
-        <label for="ticker">Ticker:</label>
-        <input type="text" id="ticker" placeholder="AAPL" required />
-        <label for="units">Units Purchased:</label>
-        <input
-          type="number"
-          id="units"
-          min="0"
-          step="any"
-          placeholder="10"
-          required
-        />
-        <label for="purchase-date">Purchase Date:</label>
-        <input type="date" id="purchase-date" name="purchaseDate" required />
-
-        <button type="submit">Add Holding</button>
-      </form>
+    
+    <main class="row g-3 mt-4 align-items-center">
+      <div class="col-lg-8">
+        <canvas id="holdings-chart"></canvas>
+      </div>
+      <div class="col-lg-4 mt-4 mt-lg-0">
+        <form id="add-holding-form">
+          <div class="mb-3">
+            <label for="ticker" class="form-label">Ticker</label>
+            <input type="text" class="form-control" id="ticker" placeholder="AAPL" required />
+          </div>
+          <div class="mb-3">
+            <label for="units" class="form-label">Units Purchased</label>
+            <input type="number" class="form-control" id="units" min="0" step="any" placeholder="10" required />
+          </div>
+          <div class="mb-3">
+            <label for="purchase-date" class="form-label">Purchase Date</label>
+            <input type="date" class="form-control" id="purchase-date" required />
+          </div>
+          <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-primary">Add Holding</button>
+          </div>
+        </form>
+      </div>
 
       <section class="mt-4">
         <h2>Your Holdings</h2>

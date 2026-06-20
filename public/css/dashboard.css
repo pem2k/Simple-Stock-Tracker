@@ -1,0 +1,14 @@
+:root {
+  --bs-primary: #5762d5;
+  --bs-secondary: #6e7dab;
+  --bs-tertiary: #575366;
+  --bs-body-color: #32292f;
+  --bs-body-bg: #ffffff;
+}
+
+.btn-primary {
+  --bs-btn-bg: #5762d5;
+  --bs-btn-border-color: #5762d5;
+  --bs-btn-hover-bg: #6e7dab;
+  --bs-btn-hover-border-color: #6e7dab;
+}
