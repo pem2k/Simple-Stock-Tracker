@@ -4,35 +4,50 @@
 // import Chart from 'chart.js/auto'
 // and not worry about manual registration
 
+import { getAllHoldings } from "./api.js";
+
 import {
   Chart,
   registerables,
 } from "https://cdn.jsdelivr.net/npm/chart.js@4/+esm";
+
 Chart.register(...registerables);
 
-(async function () {
-  const data = [
-    // default data from tutorial, will be replaced with list of objects from api
-    // when portfolio calcs are ready
-    { year: 2010, count: 10 },
-    { year: 2011, count: 20 },
-    { year: 2012, count: 15 },
-    { year: 2013, count: 25 },
-    { year: 2014, count: 22 },
-    { year: 2015, count: 30 },
-    { year: 2016, count: 28 },
-  ];
+const chartElement = document.getElementById("holdings-chart");
 
-  new Chart(document.getElementById("holdings-chart"), {
-    type: "line",
-    data: {
-      labels: data.map((row) => row.year),
-      datasets: [
-        {
-          label: "Portfolio Value",
-          data: data.map((row) => row.count),
-        },
-      ],
-    },
-  });
-})();
+function formatDate(dateString) {
+  return new Date(dateString).toLocaleDateString();
+}
+
+async function loadPortfolioChart() {
+  if (!chartElement) {
+    return;
+  }
+
+  try {
+    const data = await getAllHoldings();
+    const portfolioHistory = data.portfolioHistory || [];
+
+    if (portfolioHistory.length === 0) {
+      console.log("No portfolio history to chart yet.");
+      return;
+    }
+
+    new Chart(chartElement, {
+      type: "line",
+      data: {
+        labels: portfolioHistory.map((row) => formatDate(row.date)),
+        datasets: [
+          {
+            label: "Portfolio Value",
+            data: portfolioHistory.map((row) => row.value),
+          },
+        ],
+      },
+    });
+  } catch (error) {
+    console.error("Failed to load portfolio chart:", error.message);
+  }
+}
+
+loadPortfolioChart();
