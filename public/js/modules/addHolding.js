@@ -13,7 +13,9 @@ import { addHolding } from "./api.js";
 
 // Get the form from the HTML page using its id.
 const form = document.getElementById("add-holding-form");
-
+document.getElementById("purchase-date").max = new Date()
+  .toISOString()
+  .split("T")[0];
 /*
   Safety check - 
   If this JavaScript file loads on a page that does not have this form,
@@ -55,11 +57,13 @@ if (form) {
       */
       const data = await addHolding(ticker, purchaseDate, units);
 
-      // Later, show this on the page instead of only console.log.
       console.log("Added holding:", data);
 
-      // Clear the form after successful submit.
+      // Clear the form after successful submit
       form.reset();
+
+      // Refresh the dashboard so the new card and chart appear
+      window.location.reload();
     } catch (error) {
       // If the backend returns an error, show it in the console for now.
       console.error("Failed to add holding:", error.message);
