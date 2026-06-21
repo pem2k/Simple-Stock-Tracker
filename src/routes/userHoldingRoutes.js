@@ -112,7 +112,11 @@ router.get("/all", requireAuth, async (req, res) => {
         const purchasePrice = Number(holding.purchasePrice);
         const purchaseDate = new Date(holding.purchaseDate);
 
-        const prices = await getHistoricalPrices(ticker, purchaseDate, getTomorrow());
+        const prices = await getHistoricalPrices(
+          ticker,
+          purchaseDate,
+          getTomorrow(),
+        );
 
         if (prices.length === 0) {
           return {
