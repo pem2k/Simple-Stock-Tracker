@@ -64,6 +64,12 @@ User Story 3: Visualizing Performance
 
 As a user, I want to view a dynamic line graph displaying my total portfolio value over time, so that I can quickly assess my overall investment performance at a single glance without needing to calculate the math myself.
 
+## Mockups
+
+The initial design was used for the front end, but the focus of the application became a personal stock tracking app rather than a congressional app. Because of how the act that ensures congressional stock transparency works, investments were reported in ranges. Working with these ranges and visualizing them in a non-cluttered way, and we could not find a way of accessing the data without having to pay for a premium api or scraper. That being said, our initial mockup is still relatively accurate:
+
+[Initial Design Mockup](../screenshots/wireframe-notes.png)
+
 ## Division of Work
 
 **Backend:**

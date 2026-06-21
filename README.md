@@ -28,15 +28,13 @@ We need to add: add screenshot here
 
 Example:
 
-![Simple Stock Tracker Dashboard Screenshot](TODO_ADD_SCREENSHOT_IMAGE_LINK_HERE)
+![Dashboard Screenshot](./screenshots/portfolio.png)
+![Login Screenshot](./screenshots/login.png)
+![Sign Up Screenshot](./screenshots/signup.png)
 
 ## Video Demonstration
 
-We need to add - Add public narrated video demo link here
-
-Example:
-
-We need to add - [Watch the demo video](TODO_ADD_VIDEO_DEMO_LINK_HERE)
+[Watch the demo video](https://youtu.be/uWnp7K9GzsQ)
 
 ## Class Reference
 
@@ -380,13 +378,9 @@ An `example.env` file can be used to show other developers what variables they n
 
 ### 1. Clone the repository
 
-````bash
-git clone TODO_ADD_REPOSITORY_LINK_HERE
-Example:
-
 ```bash
 git clone https://github.com/pem2k/Simple-Stock-Tracker.git
-````
+```
 
 ### 2. Move into the project folder
 
@@ -581,6 +575,8 @@ The app was designed to help users track the value of their stock holdings over 
 
 ## How AI Was Used
 
+### Najib
+
 AI was used as a learning and debugging assistant during development.
 
 AI helped with:
@@ -594,6 +590,19 @@ AI helped with:
 - Helping explain frontend and backend code step by step
 
 The final code was reviewed and tested locally before being committed.
+
+## Parker
+
+- Claude Opus 4.6 was used to generate github issues for the described project scope I provided. While the titles of the tickets were relatively accurate, the content inside the tickets were not. Unfortunately I don't have the exact prompt recorded, but I described the functionality of the front end, the routes required, and the responsibility of each backend module.
+- Claude Opus 4.6 was used as a general javascript reference, especially regarding working with date objects.
+- Claude Opus 4.6 was used to resolve technical blockers during development. I run a vm out of my living room that I ssh to through a vpn. I was repeatedly disconnecting from ssh and claude was able to locate a misconfiguration in my vpn on the client side that lead to packets being black holed and kicking me off.
+- Claude Opus 4.6 was used to generate request bodies based on provided routes that I could copy/paste into insomnia to speed up backend testing.
+  - Example prompt: "Generate a json request body for the /signup route in @src/routes/authRoutes.js".
+- Claude Opus 4.6 Was used to agentically build the seed.js script that ensures the database meets the thousand record requirements in the rubric:
+  - Prompt: "Leveraging existing connection files and database logic, write a seed script that creates users and builds out their portfolios with
+    popular stock tickers and purchase dates that are only on valid trading days, ensure over a thousand records are saved to the database."
+- Claude Opus 4.6 was used to track project progress against the rubric so we could make sure we met all requirements.
+  - Prompt: "Review the project from the root and review the rubric in @docs/@rubric.md, flag requirements that haven't yet been met."
 
 ## Security Notes
 

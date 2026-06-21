@@ -5,6 +5,7 @@ import { connectDB } from "./src/db/connection.js";
 // routes import
 import authRoutes from "./src/routes/authRoutes.js";
 import userHoldingRoutes from "./src/routes/userHoldingRoutes.js";
+import { requireAuth } from "./src/middleware/authMiddleware.js";
 
 // middleware
 const app = express();
@@ -34,7 +35,7 @@ app.get("/signup", (req, res) => {
   res.sendFile("public/pages/signup.html", { root: "." });
 });
 
-app.get("/dashboard", (req, res) => {
+app.get("/dashboard", requireAuth, (req, res) => {
   res.sendFile("public/pages/portfolioDashboard.html", { root: "." });
 });
 

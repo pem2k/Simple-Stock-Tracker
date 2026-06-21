@@ -12,3 +12,7 @@
   --bs-btn-hover-bg: #6e7dab;
   --bs-btn-hover-border-color: #6e7dab;
 }
+
+#logout {
+  cursor: pointer;
+}
