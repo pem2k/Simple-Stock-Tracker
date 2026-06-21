@@ -88,7 +88,7 @@ cardContainer?.addEventListener("click", async (event) => {
 
   try {
     await removeHolding(holdingId);
-    await loadHoldingCards();
+    window.location.reload();
   } catch (error) {
     console.error("Failed to remove holding:", error.message);
     alert(`Failed to remove holding: ${error.message}`);
