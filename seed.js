@@ -1,3 +1,4 @@
+import crypto from "crypto";
 import { connectDB } from "./src/db/connection.js";
 import { createUser, addHolding } from "./src/modules/users.js";
 import { getHistoricalPrices } from "./src/modules/stockData.js";
@@ -48,7 +49,7 @@ async function seed() {
 
   for (let i = 1; i <= 20; i++) {
     const username = `user${i}`;
-    const password = "password123";
+    const password = crypto.randomUUID();
 
     let user;
     try {
