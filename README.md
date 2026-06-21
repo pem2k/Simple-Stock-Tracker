@@ -593,11 +593,9 @@ The final code was reviewed and tested locally before being committed.
 This project does not expose real MongoDB credentials in the README.
 
 Local development uses:
-
 ```env
 MONGO_URI=mongodb://localhost:27017/simple-stock-tracker
 ```
-
 Any real secret values should be stored in `.env` and not committed to GitHub.
 
 ## License
