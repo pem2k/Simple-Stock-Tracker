@@ -1,4 +1,5 @@
 # Simple-Stock-Tracker
+
 A full-stack stock portfolio tracking application created for **CS 5610 Web Development**. This project uses **Node.js**, **Express**, **MongoDB**, **HTML5**, **CSS**, **Bootstrap**, and **vanilla JavaScript ES6 modules**.
 
 Users can create an account, log in, add stock holdings, view their portfolio value over time, and remove holdings from their dashboard.
@@ -19,11 +20,7 @@ The original project idea was to let users create an account, log in securely, a
 
 ## Live Website
 
-We need to add - deployed website link here
-
-Example:
-
-placeholder [View the deployed Simple Stock Tracker](TODO_ADD_DEPLOYED_WEBSITE_LINK_HERE)
+[View the deployed Simple Stock Tracker](https://simple-stock-tracker-06beb7d1f596.herokuapp.com/)
 
 ## Screenshot
 
@@ -47,43 +44,38 @@ This project was created for:
 
 **CS 5610 Web Development**
 
-We need to add - class website link here
-
-Example:
-
-[CS 5610 Web Development Class Website](TODO_ADD_CLASS_LINK_HERE)
+[CS 5610 Web Development Class Website](johnguerra.co/classes/webDevelopment_online_summer_2026/)
 
 ## Author
 
 **Najib Mosquera and Parker McKillop**
 
-GitHub: [NHazelJ](https://github.com/NHazelJ)
+GitHub: [Parker McKillop](https://github.com/pem2k)
 GitHub: [NHazelJ](https://github.com/NHazelJ)
 
-LinkedIn:
-LinkedIn: [Najib Mosquera](TODO_ADD_LINKEDIN_LINK_HERE)
-
+LinkedIn: [Parker McKillop](https://www.linkedin.com/in/parker-mckillop/)
+LinkedIn: [Najib Mosquera](https://www.linkedin.com/in/najib-h-mosquera/)
 
 ## Features
 
-* User signup
-* User login
-* Password hashing with bcrypt
-* Session based authentication
-* Add stock holdings using a form
-* Remove stock holdings using an X button
-* Portfolio dashboard
-* Bootstrap cards for each holding
-* Portfolio value chart using Chart.js
-* Historical stock price lookup
-* MongoDB database storage
-* Modular backend JavaScript
-* Modular frontend JavaScript
-* Client-side rendering using vanilla JavaScript
-* Environment variables for local configuration
-* No Mongoose
-* No template engines
-* ES modules instead of CommonJS
+- User signup
+- User login
+- Password hashing with bcrypt
+- Session based authentication
+- Add stock holdings using a form
+- Remove stock holdings using an X button
+- Portfolio dashboard
+- Bootstrap cards for each holding
+- Portfolio value chart using Chart.js
+- Historical stock price lookup
+- MongoDB database storage
+- Modular backend JavaScript
+- Modular frontend JavaScript
+- Client-side rendering using vanilla JavaScript
+- Environment variables for local configuration
+- No Mongoose
+- No template engines
+- ES modules instead of CommonJS
 
 ## User Personas
 
@@ -126,16 +118,18 @@ As a user, I want to remove a stock holding from my dashboard, so that my portfo
 3. The user logs in.
 4. The user adds a stock holding by entering:
 
-   * Stock ticker
-   * Units purchased
-   * Purchase date
+   - Stock ticker
+   - Units purchased
+   - Purchase date
+
 5. The app saves the holding in MongoDB.
 6. The backend fetches historical prices and calculates portfolio value over time.
 7. The dashboard displays:
 
-   * A portfolio value chart
-   * A card for each holding
-   * Current value and gain/loss
+   - A portfolio value chart
+   - A card for each holding
+   - Current value and gain/loss
+
 8. The user can remove a holding by clicking the X button on the card.
 9. The user can log out.
 
@@ -143,9 +137,9 @@ As a user, I want to remove a stock holding from my dashboard, so that my portfo
 
 This project includes these main frontend pages:
 
-* `login.html` — Login page for existing users
-* `signup.html` — Signup page for new users
-* `portfolioDashboard.html` — Main dashboard where users manage holdings and view portfolio value
+- `login.html` — Login page for existing users
+- `signup.html` — Signup page for new users
+- `portfolioDashboard.html` — Main dashboard where users manage holdings and view portfolio value
 
 ## Backend Routes
 
@@ -153,15 +147,15 @@ The backend uses Express routes for authentication and stock holdings.
 
 ### Authentication Routes
 
-* `POST /api/auth/signup`
-* `POST /api/auth/login`
-* `POST /api/auth/logout`
+- `POST /api/auth/signup`
+- `POST /api/auth/login`
+- `POST /api/auth/logout`
 
 ### User Holding Routes
 
-* `POST /api/userHoldings/add`
-* `GET /api/userHoldings/all`
-* `DELETE /api/userHoldings/remove`
+- `POST /api/userHoldings/add`
+- `GET /api/userHoldings/all`
+- `DELETE /api/userHoldings/remove`
 
 ## MongoDB Collections
 
@@ -173,9 +167,9 @@ Stores user account information and portfolio holdings.
 
 Example data stored:
 
-* Username
-* Hashed password
-* Holding records
+- Username
+- Hashed password
+- Holding records
 
 ### `stockHistory`
 
@@ -183,9 +177,9 @@ Stores cached historical stock price records.
 
 Example data stored:
 
-* Stock ticker
-* Date
-* Closing price
+- Stock ticker
+- Date
+- Closing price
 
 The stock history collection helps avoid unnecessary repeated external data requests by storing historical price records locally.
 
@@ -195,23 +189,23 @@ This project supports CRUD-style operations through the user and stock tracking 
 
 ### Create
 
-* Users can create an account.
-* Users can add stock holdings.
-* Historical stock records can be inserted into the stock history collection.
+- Users can create an account.
+- Users can add stock holdings.
+- Historical stock records can be inserted into the stock history collection.
 
 ### Read
 
-* Users can log in and read their saved holdings.
-* The dashboard reads calculated portfolio history from the backend.
-* The app reads cached historical stock data from MongoDB.
+- Users can log in and read their saved holdings.
+- The dashboard reads calculated portfolio history from the backend.
+- The app reads cached historical stock data from MongoDB.
 
 ### Update
 
-* Historical stock price records can be inserted or updated in the local `stockHistory` collection when stock data is fetched.
+- Historical stock price records can be inserted or updated in the local `stockHistory` collection when stock data is fetched.
 
 ### Delete
 
-* Users can remove holdings from their portfolio.
+- Users can remove holdings from their portfolio.
 
 ## Portfolio Calculation
 
@@ -236,33 +230,33 @@ The dashboard chart uses the full portfolio value over time, not separate indivi
 
 This project uses:
 
-* HTML5
-* CSS3
-* Bootstrap 5
-* Vanilla JavaScript
-* ES6 modules
-* Node.js
-* Express
-* MongoDB native driver
-* Docker for local MongoDB
-* Chart.js
-* yahoo-finance2
-* Alpaca API package
-* bcrypt
-* express-session
-* ESLint
-* Prettier
-* Git and GitHub
-* MIT License
+- HTML5
+- CSS3
+- Bootstrap 5
+- Vanilla JavaScript
+- ES6 modules
+- Node.js
+- Express
+- MongoDB native driver
+- Docker for local MongoDB
+- Chart.js
+- yahoo-finance2
+- Alpaca API package
+- bcrypt
+- express-session
+- ESLint
+- Prettier
+- Git and GitHub
+- MIT License
 
 ## Important Project Restrictions
 
 This project does **not** use:
 
-* Mongoose
-* Template engines such as EJS, Pug, Jade, or Handlebars
-* CommonJS `require`
-* React, Vue, or Angular
+- Mongoose
+- Template engines such as EJS, Pug, Jade, or Handlebars
+- CommonJS `require`
+- React, Vue, or Angular
 
 The project uses ES modules with `import` and `export`.
 
@@ -327,16 +321,16 @@ The project uses ES6 modules on both the backend and frontend.
 
 Examples:
 
-* `server.js` starts the Express server and connects the routes.
-* `connection.js` handles the MongoDB connection.
-* `users.js` handles user and holding database operations.
-* `stockHistory.js` handles cached historical stock price records.
-* `stockData.js` handles stock price lookup and historical price logic.
-* `api.js` centralizes frontend fetch requests.
-* `addHolding.js` handles the add holding form.
-* `cardBuilder.js` renders holding cards.
-* `chartBuilder.js` renders the portfolio value chart.
-* `logout.js` handles logout behavior.
+- `server.js` starts the Express server and connects the routes.
+- `connection.js` handles the MongoDB connection.
+- `users.js` handles user and holding database operations.
+- `stockHistory.js` handles cached historical stock price records.
+- `stockData.js` handles stock price lookup and historical price logic.
+- `api.js` centralizes frontend fetch requests.
+- `addHolding.js` handles the add holding form.
+- `cardBuilder.js` renders holding cards.
+- `chartBuilder.js` renders the portfolio value chart.
+- `logout.js` handles logout behavior.
 
 ## Client-Side Rendering
 
@@ -346,22 +340,22 @@ The dashboard does not use a frontend framework or template engine. Instead, Jav
 
 Examples:
 
-* `cardBuilder.js` fetches holdings and renders Bootstrap cards.
-* `chartBuilder.js` fetches portfolio history and renders the Chart.js line chart.
+- `cardBuilder.js` fetches holdings and renders Bootstrap cards.
+- `chartBuilder.js` fetches portfolio history and renders the Chart.js line chart.
 
 ## Forms
 
 This project includes multiple forms:
 
-* Signup form
-* Login form
-* Add holding form
+- Signup form
+- Login form
+- Add holding form
 
 The add holding form collects:
 
-* Stock ticker
-* Units purchased
-* Purchase date
+- Stock ticker
+- Units purchased
+- Purchase date
 
 ## Environment Variables
 
@@ -386,13 +380,13 @@ An `example.env` file can be used to show other developers what variables they n
 
 ### 1. Clone the repository
 
-```bash
+````bash
 git clone TODO_ADD_REPOSITORY_LINK_HERE
 Example:
 
 ```bash
 git clone https://github.com/pem2k/Simple-Stock-Tracker.git
-```
+````
 
 ### 2. Move into the project folder
 
@@ -448,7 +442,7 @@ PORT=3000
 ### 7. Start the app
 
 ```bash
-npm start
+node --env-file=.env server.js
 ```
 
 ### 8. Open the app in the browser
@@ -464,9 +458,10 @@ http://localhost:3000
 3. Log in.
 4. On the dashboard, enter:
 
-   * Stock ticker
-   * Units purchased
-   * Purchase date
+   - Stock ticker
+   - Units purchased
+   - Purchase date
+
 5. Click **Add Holding**.
 6. View the holding card under **Your Holdings**.
 7. View the portfolio value chart.
@@ -512,43 +507,43 @@ npm run lint:fix
 
 ## Project Requirements Checklist
 
-* Node.js backend
-* Express server
-* MongoDB database
-* At least two MongoDB collections
-* CRUD-style database operations
-* HTML5 frontend
-* Vanilla JavaScript frontend
-* ES6 modules
-* Client-side rendering
-* Signup form
-* Login form
-* Add holding form
-* Organized folders for frontend, backend, database, routes, modules, CSS, and pages
-* ESLint config file
-* Prettier formatting
-* Bootstrap styling
-* `package.json` included
-* MIT License included
-* No Mongoose
-* No template engines
-* No CommonJS `require`
-* No secret credentials committed
-* Public demo video included
-* Screenshot included
-* Deployment link included
+- Node.js backend
+- Express server
+- MongoDB database
+- At least two MongoDB collections
+- CRUD-style database operations
+- HTML5 frontend
+- Vanilla JavaScript frontend
+- ES6 modules
+- Client-side rendering
+- Signup form
+- Login form
+- Add holding form
+- Organized folders for frontend, backend, database, routes, modules, CSS, and pages
+- ESLint config file
+- Prettier formatting
+- Bootstrap styling
+- `package.json` included
+- MIT License included
+- No Mongoose
+- No template engines
+- No CommonJS `require`
+- No secret credentials committed
+- Public demo video included
+- Screenshot included
+- Deployment link included
 
 ## Design Document Summary
 
 The design document includes:
 
-* Project description
-* MongoDB collections
-* CRUD operations
-* User personas
-* User stories
-* Division of work
-* Tools and libraries
+- Project description
+- MongoDB collections
+- CRUD operations
+- User personas
+- User stories
+- Division of work
+- Tools and libraries
 
 The app was designed to help users track the value of their stock holdings over time in a simple and understandable way.
 
@@ -556,21 +551,33 @@ The app was designed to help users track the value of their stock holdings over 
 
 ### Najib
 
-* Portfolio calculation engine
-* Historical price and stock data logic
-* Authentication interfaces
-* Portfolio dashboard chart using Chart.js
-* Dashboard card rendering and frontend adjustments
-* README documentation
+- Login and signup front-end pages (HTML, CSS, JS)
+- API fetch wrapper module (api.js)
+- Portfolio value calculation engine (in userHoldingRoutes.js and users.js)
+- Dashboard card rendering (cardBuilder.js)
+- Chart data mapping within chartBuilder.js
+- Front-end adjustments (form tweaks, dashboard layout)
+- README documentation
 
 ### Parker
 
-* Authentication and database setup
-* Password hashing with bcrypt
-* Session management
-* Hosting and application management
-* Transaction management UI planning
-* Backend and infrastructure support
+- Project scaffolding and folder structure
+- MongoDB connection setup (connection.js)
+- User module — signup, login, password hashing, session logic (users.js)
+- Authentication routes — signup, login, logout (authRoutes.js)
+- Auth middleware (requireAuth)
+- Stock price history DB layer and caching logic (stockHistory.js, stockData.js)
+- Yahoo Finance integration for historical data
+- Alpaca integration for live intraday prices (alpacaClient.js)
+- User holding routes — add, delete, get all (userHoldingRoutes.js)
+- Express server configuration (server.js)
+- Dashboard HTML skeleton and add-holding form
+- Initial chartBuilder.js implementation (CDN import, base chart)
+- Logout button wiring
+- Page routing (GET routes for login/signup/dashboard, redirects)
+- Dashboard styling and layout fixes (navbar, footer spacing, date input max)
+- Cache logic bugfixes (date range validation)
+- Hosting and deployment
 
 ## How AI Was Used
 
@@ -578,13 +585,13 @@ AI was used as a learning and debugging assistant during development.
 
 AI helped with:
 
-* Explaining Node.js, Express, MongoDB, and Docker setup
-* Debugging MongoDB connection issues
-* Debugging the add holding route
-* Debugging the portfolio dashboard
-* Explaining ES6 modules
-* Helping organize the README
-* Helping explain frontend and backend code step by step
+- Explaining Node.js, Express, MongoDB, and Docker setup
+- Debugging MongoDB connection issues
+- Debugging the add holding route
+- Debugging the portfolio dashboard
+- Explaining ES6 modules
+- Helping organize the README
+- Helping explain frontend and backend code step by step
 
 The final code was reviewed and tested locally before being committed.
 
@@ -593,12 +600,13 @@ The final code was reviewed and tested locally before being committed.
 This project does not expose real MongoDB credentials in the README.
 
 Local development uses:
+
 ```env
 MONGO_URI=mongodb://localhost:27017/simple-stock-tracker
 ```
+
 Any real secret values should be stored in `.env` and not committed to GitHub.
 
 ## License
 
 This project uses the MIT License.
-
