@@ -545,13 +545,21 @@ The app was designed to help users track the value of their stock holdings over 
 
 ### Najib
 
-- Login and signup front-end pages (HTML, CSS, JS)
-- API fetch wrapper module (api.js)
-- Portfolio value calculation engine (in userHoldingRoutes.js and users.js)
-- Dashboard card rendering (cardBuilder.js)
-- Chart data mapping within chartBuilder.js
-- Front-end adjustments (form tweaks, dashboard layout)
-- README documentation
+- Created the login and signup front-end pages using HTML, CSS, Bootstrap, and vanilla JavaScript.
+- Built and updated the authentication interface so users can create an account, log in, and navigate into the portfolio dashboard.
+- Created the frontend API helper module (api.js) to organize fetch requests from the client side to the Express backend.
+- Worked on the portfolio value calculation feature by updating the /api/userHoldings/all route to return calculated holding data and total portfolio history.
+- Helped connect backend calculated portfolio data to the frontend dashboard.
+- Built the dashboard card rendering feature in cardBuilder.js, including Bootstrap holding cards for ticker, units, purchase price, current value, and gain/loss.
+- Added and wired the X button on each holding card so users can remove holdings from the portfolio.
+- Updated chartBuilder.js so the Chart.js graph uses real portfolio history data instead of placeholder values.
+- Added the cardBuilder.js script connection to the portfolio dashboard page.
+- Tested the add holding, remove holding, dashboard card, and portfolio chart flow locally.
+- Helped debug MongoDB setup using Docker and MongoDB Compass for local development.
+- Helped debug the add holding route when external stock price requests caused backend errors.
+- Made front end adjustments to improve the dashboard layout and usability.
+- Helped organize project documentation and write the final README file.
+- Created the final PowerPoint slides for the Project 2.
 
 ### Parker
 
@@ -581,15 +589,13 @@ AI was used as a learning and debugging assistant during development.
 
 AI helped with:
 
-- Explaining Node.js, Express, MongoDB, and Docker setup
+- Explaining Node.js, Express, MongoDB, and Docker
 - Debugging MongoDB connection issues
 - Debugging the add holding route
 - Debugging the portfolio dashboard
 - Explaining ES6 modules
 - Helping organize the README
 - Helping explain frontend and backend code step by step
-
-The final code was reviewed and tested locally before being committed.
 
 ## Parker
 
