@@ -593,7 +593,6 @@ AI was used as a learning and debugging assistant during development.
 - Debugging the portfolio dashboard
 - Explaining ES6 modules
 - Helping organize the README
-- Helping explain frontend and backend code step by step
 
 ## Parker
 
