@@ -587,8 +587,6 @@ The app was designed to help users track the value of their stock holdings over 
 
 AI was used as a learning and debugging assistant during development.
 
-AI helped with:
-
 - Explaining Node.js, Express, MongoDB, and Docker
 - Debugging MongoDB connection issues
 - Debugging the add holding route
