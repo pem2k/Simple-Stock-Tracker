@@ -1,3 +1,29 @@
+/* PEER REVIEW — Sanjay Sundar BV (CS 5610)
+ *
+ * Suggestion 1: Add a focus ring to inputs for keyboard accessibility.
+ * Currently inputs have no visible focus state beyond the browser default.
+ * Example fix:
+ *   input:focus {
+ *     outline: 2px solid #2563eb;
+ *     outline-offset: 2px;
+ *     border-color: #2563eb;
+ *   }
+ *
+ * Suggestion 2: Add a smooth transition to the button hover effect.
+ * Currently the hover color change is instant.
+ * Example fix:
+ *   button {
+ *     transition: background-color 0.2s ease;
+ *   }
+ *
+ * Suggestion 3: The auth-card has a fixed max-width of 400px which is good,
+ * but adding a subtle box-shadow would improve the card's visual depth.
+ * Example fix:
+ *   .auth-card {
+ *     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+ *   }
+ */
+
 /* Basic page layout. This centers the login card on the page. */
 body {
   margin: 0;
