@@ -19,6 +19,15 @@ export async function getHistoricalPrices(ticker, startDate, endDate) {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
+    // PEER REVIEW: requiring `lastDate >= today` means the cache is treated as
+    // stale every day the market is closed (weekends/holidays), since no record
+    // exists for "today", so this re-fetches from Yahoo more than needed.
+    // Comparing against the most recent trading day (or allowing a small
+    // freshness window) would let the cache be used on those days.
+    // const mostRecentExpected = lastClosedTradingDay(today);
+    // if (firstDate <= startDate && lastDate >= mostRecentExpected) {
+    //   records = cached;
+    // }
     if (firstDate <= startDate && lastDate >= today) {
       records = cached;
     }

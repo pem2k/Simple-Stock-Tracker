@@ -11,6 +11,16 @@ import { requireAuth } from "./src/middleware/authMiddleware.js";
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// PEER REVIEW: if SESSION_SECRET is missing, express-session just signs cookies
+// with `undefined` and keeps going. Better to bail out here so it's obvious.
+// if (!process.env.SESSION_SECRET) {
+//   throw new Error("SESSION_SECRET is required");
+// }
+
+// PEER REVIEW: Heroku sits in front of the app as an HTTPS proxy, so this is
+// needed for the secure cookie below to actually work in production.
+// app.set("trust proxy", 1);
+
 app.use(express.json());
 app.use(
   session({
@@ -19,6 +29,15 @@ app.use(
     resave: false,
     //no session for logged out people:
     saveUninitialized: false,
+    // PEER REVIEW: the cookie is using defaults right now. httpOnly keeps JS
+    // from reading it, secure keeps it on HTTPS in prod, sameSite helps with
+    // CSRF, and maxAge means sessions don't live forever.
+    // cookie: {
+    //   httpOnly: true,
+    //   secure: process.env.NODE_ENV === "production",
+    //   sameSite: "lax",
+    //   maxAge: 1000 * 60 * 60 * 24, // 1 day
+    // },
   }),
 );
 
