@@ -64,6 +64,11 @@ router.post("/add", requireAuth, async (req, res) => {
       units: unitsNumber,
     });
   } catch (err) {
+    // PEER REVIEW: err.message here could be a raw Yahoo or Mongo error, which
+    // we probably don't want to hand to the client. Log it and send something
+    // generic back.
+    // console.error(err);
+    // res.status(500).json({ error: "something went wrong, please try again" });
     res.status(500).json({ error: err.message });
   }
 });
@@ -85,6 +90,11 @@ router.delete("/remove", requireAuth, async (req, res) => {
 
     res.status(200).json({ removed: { holdingId } });
   } catch (err) {
+    // PEER REVIEW: err.message here could be a raw Yahoo or Mongo error, which
+    // we probably don't want to hand to the client. Log it and send something
+    // generic back.
+    // console.error(err);
+    // res.status(500).json({ error: "something went wrong, please try again" });
     res.status(500).json({ error: err.message });
   }
 });
@@ -163,6 +173,11 @@ router.get("/all", requireAuth, async (req, res) => {
       portfolioHistory,
     });
   } catch (err) {
+    // PEER REVIEW: err.message here could be a raw Yahoo or Mongo error, which
+    // we probably don't want to hand to the client. Log it and send something
+    // generic back.
+    // console.error(err);
+    // res.status(500).json({ error: "something went wrong, please try again" });
     res.status(500).json({ error: err.message });
   }
 });

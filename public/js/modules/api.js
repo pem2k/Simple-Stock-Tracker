@@ -106,3 +106,15 @@ export function getAllHoldings() {
     method: "GET",
   });
 }
+
+// PEER REVIEW: right now cardBuilder.js and chartBuilder.js both call
+// getAllHoldings() on load, so the dashboard hits the (pricey) calc route twice
+// every time. Caching the promise lets them share one request. Pass fresh=true
+// after adding/removing a holding to force a refetch.
+// let holdingsPromise = null;
+// export function getAllHoldingsCached(fresh = false) {
+//   if (fresh || !holdingsPromise) {
+//     holdingsPromise = getAllHoldings();
+//   }
+//   return holdingsPromise;
+// }
